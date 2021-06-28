@@ -1,8 +1,8 @@
 
-function MainPage(params) {
+function mainPage(params) {
     
-    return <h1>MainPage</h1>
+    return <h1>mainPagegege</h1>
 }
 
 
-export default MainPage
+export default mainPage
