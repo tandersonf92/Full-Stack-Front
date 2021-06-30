@@ -1,14 +1,19 @@
 import { useEffect } from "react"
+import { useHistory } from "react-router-dom"
 import useForm from "../../hooks/useForm"
+import login from "../../requests/login"
+import signup from "../../requests/signup"
 
 function SignUpPage(params) {
-    const [form, onChange] = useForm({ name: "", nickname: "", email: "", password: "" })
+    const [form, onChange] = useForm({ name: "", email: "", nickname: "", password: "" })
     const [formPassword, onChangeConfirmPassword] = useForm({ confirmPassword: "" })
 
 
     useEffect(() => {
 
-    },[form.password])
+    }, [form.password])
+
+    const history = useHistory()
     const checkFormPassword = event => {
         onChangeConfirmPassword(event)
         // console.log('to no EVENT DENTRO DO CHECK FORM.... qual e o EVENTO: ',event.target.value)
@@ -31,8 +36,8 @@ function SignUpPage(params) {
     }
 
     useEffect(() => {
-        console.log('form  dentro do useEffect:',form)
-        console.log('formPassword  detrno do useEffect:',formPassword)
+        // console.log('form  dentro do useEffect:', form)
+        // console.log('formPassword  detrno do useEffect:', formPassword)
     })
     return (
         <>
@@ -45,6 +50,10 @@ function SignUpPage(params) {
                 <input name="confirmPassword" onChange={checkFormPassword} placeholder="confirmPassword" value={formPassword.confirmPassword}></input>
             </form>
 
+
+
+            <button onClick={(evt) => login(form, evt, history)}>teste login</button>
+            <button onClick={(evt) => signup(form, evt, history)}> teste signup</button>
         </>
     )
 }

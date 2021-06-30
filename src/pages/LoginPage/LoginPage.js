@@ -1,7 +1,14 @@
 
 function LoginPage(params) {
-    
-    return <h1>LoginPage</h1>
+
+    return (
+        <div>
+
+
+            <h1>LoginPage</h1>
+
+        </div>
+    )
 }
 
 
