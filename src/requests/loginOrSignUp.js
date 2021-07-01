@@ -1,25 +1,21 @@
 import axios from "axios";
-import { BASE_URL } from "../constants/baseUrl";
+import { BASE_URL } from '../constants/baseUrl'
 import { goToHomePage } from "../routes/coorditator";
 
 
 
-
-const login = async (body, evt, history) => {
+const loginOrSignUp = async (body, evt, history,finalUrl) => {
     try {
         evt.preventDefault()
-        console.log('Body: ', body)
-        const response = await axios.post(`${BASE_URL}user/login`, body)
+        const response = await axios.post(`${BASE_URL}${finalUrl}`, body)
         console.log('response: ', response)
         const token = response.data.token
         window.localStorage.setItem('token', token)
-        if (token) {
-            goToHomePage(history)
-        }
+        goToHomePage(history)
     } catch (error) {
         console.log('error: ', error.response)
     }
 }
 
 
-export default login
+export default loginOrSignUp

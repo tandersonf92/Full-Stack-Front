@@ -53,7 +53,6 @@ function SignUpPage(params) {
 
 
             <button onClick={(evt) => login(form, evt, history)}>teste login</button>
-            <button onClick={(evt) => signup(form, evt, history)}> teste signup</button>
         </>
     )
 }
