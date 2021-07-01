@@ -8,12 +8,8 @@ import { goToHomePage } from "../routes/coorditator";
 const login = async (body, evt, history) => {
     try {
         evt.preventDefault()
-        const loginBody = {
-            email: body.email,
-            password: body.password
-        }
         console.log('Body: ', body)
-        const response = await axios.post(`${BASE_URL}user/login`, loginBody)
+        const response = await axios.post(`${BASE_URL}user/login`, body)
         console.log('response: ', response)
         const token = response.data.token
         window.localStorage.setItem('token', token)

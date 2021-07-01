@@ -1,28 +1,21 @@
-
-
-
-
-
 import axios from "axios";
 import { BASE_URL } from '../constants/baseUrl'
-import { goToLoginPage } from "../routes/coorditator";
+import { goToHomePage } from "../routes/coorditator";
 
 
 
-const signup = async (body, evt, history) => {
+const loginOrSignUp = async (body, evt, history,finalUrl) => {
     try {
         evt.preventDefault()
-
-        // title, file , genresIds e albumId
-        const response = await axios.post(`${BASE_URL}music/createMusic`, body)
+        const response = await axios.post(`${BASE_URL}${finalUrl}`, body)
         console.log('response: ', response)
         const token = response.data.token
         window.localStorage.setItem('token', token)
-        goToLoginPage(history)
+        goToHomePage(history)
     } catch (error) {
         console.log('error: ', error.response)
     }
 }
 
 
-export default signup
+export default loginOrSignUp

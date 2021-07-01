@@ -11,7 +11,7 @@ import { goToLoginPage } from "../routes/coorditator";
 
 
 
-const createMusicOrAlbum = async (finalUrl,body, evt, history) => {
+const createMusicAlbumOrGenre = async (finalUrl,body, evt, history) => {
     try {
         evt.preventDefault()
 
@@ -23,4 +23,4 @@ const createMusicOrAlbum = async (finalUrl,body, evt, history) => {
 }
 
 
-export default createMusicOrAlbum
+export default createMusicAlbumOrGenre
