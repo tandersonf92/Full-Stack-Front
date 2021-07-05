@@ -18,7 +18,7 @@ function Router() {
                 <Route exact path="/signUp">
                     <SignUpPage />
                 </Route>
-                <Route exact path="createMusic">
+                <Route exact path="/music">
                     <CreateMusicPage />
                 </Route>
 

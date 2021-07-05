@@ -1,7 +1,11 @@
 import { useEffect } from "react"
 import { useHistory } from "react-router-dom"
+import { Button } from "../../components/buttons/Button"
+import { Form } from "../../components/form/Form"
+import { Input } from "../../components/inputs/Input"
 import useForm from "../../hooks/useForm"
 import login from "../../requests/login"
+import loginOrSignUp from "../../requests/loginOrSignUp"
 import signup from "../../requests/signup"
 
 function SignUpPage(params) {
@@ -42,17 +46,42 @@ function SignUpPage(params) {
     return (
         <>
             <h1>MainPage</h1>
-            <form>
-                <input name="name" onChange={onChange} placeholder="name" value={form.name}></input>
-                <input name="email" onChange={onChange} placeholder="email" value={form.email}></input>
-                <input name="nickname" onChange={onChange} placeholder="nickname" value={form.nickname}></input>
-                <input name="password" onChange={checkMainPassword} placeholder="password" value={form.password}></input>
-                <input name="confirmPassword" onChange={checkFormPassword} placeholder="confirmPassword" value={formPassword.confirmPassword}></input>
-            </form>
+            <Form onSubmit={evt => loginOrSignUp(form, evt, history, "user/signup")} >
+                <Input
+                    name="name"
+                    onChange={onChange}
+                    placeholder="name"
+                    value={form.name} />
 
+                <Input name="email"
+                    onChange={onChange}
+                    placeholder="email"
+                    value={form.email}
+                />
 
+                <Input name="nickname"
+                    onChange={onChange}
+                    placeholder="nickname"
+                    value={form.nickname}
+                />
 
-            <button onClick={(evt) => login(form, evt, history)}>teste login</button>
+                <Input name="password"
+                    onChange={checkMainPassword}
+                    placeholder="password"
+                    value={form.password}
+                />
+
+                <Input name="confirmPassword"
+                    onChange={checkFormPassword}
+                    placeholder="confirmPassword"
+                    value={formPassword.confirmPassword}
+                />
+
+                <Button
+                    onClick={(evt) => signup(form, evt, history)}
+                    msg={"Sign up"}
+                />
+            </Form>
         </>
     )
 }
