@@ -3,10 +3,10 @@ import { useHistory } from "react-router-dom"
 import { Button } from "../../components/buttons/Button"
 import { Form } from "../../components/form/Form"
 import { Input } from "../../components/inputs/Input"
+import AllButtons from "../../components/TEMPORARIOS/AllButtons"
 import useForm from "../../hooks/useForm"
-import login from "../../requests/login"
 import loginOrSignUp from "../../requests/loginOrSignUp"
-import signup from "../../requests/signup"
+// import signup from "../../requests/signup"
 
 function SignUpPage(params) {
     const [form, onChange] = useForm({ name: "", email: "", nickname: "", password: "" })
@@ -20,8 +20,6 @@ function SignUpPage(params) {
     const history = useHistory()
     const checkFormPassword = event => {
         onChangeConfirmPassword(event)
-        // console.log('to no EVENT DENTRO DO CHECK FORM.... qual e o EVENTO: ',event.target.value)
-        // console.log(` form.password: ,${form.password} .... formPassword.confirmPassword: ${formPassword.confirmPassword}`)
         if (event.target.value.length > 5 && form.password.length > 5 && event.target.value !== form.password) {
             console.log('ta diferente , vem com a gente....')
         } else {
@@ -78,9 +76,13 @@ function SignUpPage(params) {
                 />
 
                 <Button
-                    onClick={(evt) => signup(form, evt, history)}
-                    msg={"Sign up"}
+                    // onClick={(evt) => signup(form, evt, history)}
+                    text={"Sign up"}
+                    backgroundColor={"red"}
+                    color={"white"}
                 />
+
+                <AllButtons/>
             </Form>
         </>
     )

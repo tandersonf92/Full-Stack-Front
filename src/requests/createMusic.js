@@ -1,28 +1,26 @@
-
-
-
-
-
 import axios from "axios";
-import { BASE_URL } from '../constants/baseUrl'
-import { goToLoginPage } from "../routes/coorditator";
+import { BASE_URL } from '../constants/BASE_URL'
+import { goToHomePage, goToLoginPage } from "../routes/coordinator";
 
 
 
-const signup = async (body, evt, history) => {
+const createMusic = async (body, evt, history) => {
     try {
         evt.preventDefault()
-
+        const token = localStorage.getItem('token')
+        // console.log('token: ', token)
         // title, file , genresIds e albumId
-        const response = await axios.post(`${BASE_URL}music/createMusic`, body)
-        console.log('response: ', response)
-        const token = response.data.token
-        window.localStorage.setItem('token', token)
-        goToLoginPage(history)
+        const response = await axios.post(`${BASE_URL}music/createMusic`,
+            body, {
+            headers: { authorization: token }
+        })
+        alert("Music created!")
+        goToHomePage(history)
+
     } catch (error) {
-        console.log('error: ', error.response)
+        alert('error: ', error.response)
     }
 }
 
 
-export default signup
+export default createMusic

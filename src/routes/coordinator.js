@@ -1,7 +1,7 @@
 
 
 
-export const goToLoginPage = history => {
+export const goToLoginPage = (history) => {
     history.push('/login')
 }
 
@@ -17,4 +17,9 @@ export const goToDetailsPage = history => {
 export const goToHomePage = (history) => {
    
     history.push('/')
+}
+
+export const goToCreateMusicPage =  history => {
+history.push('/music')
+    
 }

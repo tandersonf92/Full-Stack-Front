@@ -7,10 +7,8 @@ import { Form } from "../../components/form/Form"
 import { Input } from "../../components/inputs/Input"
 import { LoginSeparator } from "../../components/separators/LoginSeparator"
 import useForm from "../../hooks/useForm"
-import login from "../../requests/login"
 import loginOrSignUp from "../../requests/loginOrSignUp"
-import signup from "../../requests/signup"
-import { goToDetailsPage, goToHomePage, goToSignUpPage } from "../../routes/coorditator"
+import {  goToSignUpPage } from "../../routes/coordinator"
 
 function LoginPage(params) {
     const [form, onChange] = useForm({ email: "", password: "" })
@@ -21,8 +19,7 @@ function LoginPage(params) {
 
 
     useEffect(() => {
-        // console.log('form  dentro do useEffect:', form)
-        // console.log('formPassword  detrno do useEffect:', formPassword)
+        window.localStorage.removeItem('token')
     })
     return (
         <>
