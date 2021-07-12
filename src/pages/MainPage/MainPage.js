@@ -1,17 +1,24 @@
+import { useEffect } from "react"
+import { useHistory } from "react-router-dom"
+import { MusicContainer } from "../../components/containers/MusicContainer"
+import AllButtons from "../../components/TEMPORARIOS/AllButtons"
+import useProtectedPage from "../../hooks/useProtectedPage"
 import useRequestData from "../../hooks/useRequestData"
 
-function MainPage(params) {
+const MainPage = (params) => {
+    const history = useHistory()
+    const musics = useRequestData({}, "music/allOfUser")
+    useProtectedPage(history)
+    useEffect(() => {
 
-    const musics = useRequestData({}, "music/all")
-    // const genre = useRequestData({}, "music/genres")
-    // const album = useRequestData({},"music/albums")
-    console.log(musics)
-    // console.log(genre)
-    // console.log(album)
-
+    }, [])
 
     let test = musics.length > 0 && musics.map(music => {
-        return <h1>{music.title}</h1>
+        return <MusicContainer
+            key={music.music_id}
+            title={music.title}
+            file_address={music.file_address}
+        />
     })
     return (
 
@@ -24,6 +31,7 @@ function MainPage(params) {
             <h1>MainPagegege</h1>
             {test ? test : <h2>loading</h2>}
 
+            <AllButtons />
         </div>
     )
 }
