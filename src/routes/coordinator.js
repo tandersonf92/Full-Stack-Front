@@ -16,7 +16,7 @@ export const goToDetailsPage = history => {
 
 export const goToHomePage = (history) => {
    
-    history.push('/')
+    history.push('/home')
 }
 
 export const goToCreateMusicPage =  history => {
