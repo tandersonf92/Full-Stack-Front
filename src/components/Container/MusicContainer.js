@@ -9,7 +9,6 @@ export const MusicContainer = props => {
     return (
         <Body>
             <ImageBox src={youtubeAddressVideo}>
-
             </ImageBox>
             <Title>
                 {props.title}

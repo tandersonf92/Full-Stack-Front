@@ -1,11 +1,11 @@
 import { useEffect } from "react"
 import { useHistory } from "react-router-dom"
-import { MusicContainer } from "../../components/containers/MusicContainer"
+import { MusicContainer } from "../../components/Container/MusicContainer"
 import AllButtons from "../../components/TEMPORARIOS/AllButtons"
 import useProtectedPage from "../../hooks/useProtectedPage"
 import useRequestData from "../../hooks/useRequestData"
 
-const MainPage = (params) => {
+const HomePage = (params) => {
     const history = useHistory()
     const musics = useRequestData({}, "music/allOfUser")
     useProtectedPage(history)
@@ -28,7 +28,7 @@ const MainPage = (params) => {
 
             <button>Testando valores dos alls</button>
 
-            <h1>MainPagegege</h1>
+            <h1>HomePagegege</h1>
             {test ? test : <h2>loading</h2>}
 
             <AllButtons />
@@ -37,4 +37,4 @@ const MainPage = (params) => {
 }
 
 
-export default MainPage
+export default HomePage

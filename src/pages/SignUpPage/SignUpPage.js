@@ -1,8 +1,8 @@
 import { useEffect } from "react"
 import { useHistory } from "react-router-dom"
 import { Button } from "../../components/buttons/Button"
-import { Form } from "../../components/form/Form"
-import { Input } from "../../components/inputs/Input"
+import { Form } from "../../components/Form/Form"
+import { Input } from "../../components/Inputs/Input"
 import AllButtons from "../../components/TEMPORARIOS/AllButtons"
 import useForm from "../../hooks/useForm"
 import loginOrSignUp from "../../requests/loginOrSignUp"
@@ -48,30 +48,42 @@ function SignUpPage(params) {
                 <Input
                     name="name"
                     onChange={onChange}
-                    placeholder="name"
+                    placeholder="Name and Last name"
+                    required
+                    pattern={"^([a-zA-Z]{2,}\\s[a-zA-Z]{1,}'?-?[a-zA-Z]{2,}\\s?([a-zA-Z]{1,})?)"}
                     value={form.name} />
 
                 <Input name="email"
                     onChange={onChange}
-                    placeholder="email"
+                    placeholder="email@email.com"
+                    required
+                    pattern={"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$"}
                     value={form.email}
                 />
 
                 <Input name="nickname"
                     onChange={onChange}
-                    placeholder="nickname"
+                    placeholder="Nickname: ex: GreenBoy"
+                    required
+                    pattern={"^.{4,}"}
                     value={form.nickname}
                 />
 
                 <Input name="password"
                     onChange={checkMainPassword}
                     placeholder="password"
+                    required
+                    pattern={"^.{6,}"}
                     value={form.password}
+                    type="password"
                 />
 
                 <Input name="confirmPassword"
                     onChange={checkFormPassword}
                     placeholder="confirmPassword"
+                    required
+                    pattern={"^.{6,}"}
+                    type="password"
                     value={formPassword.confirmPassword}
                 />
 
@@ -81,8 +93,7 @@ function SignUpPage(params) {
                     backgroundColor={"red"}
                     color={"white"}
                 />
-
-                <AllButtons/>
+                {/* <AllButtons /> */}
             </Form>
         </>
     )

@@ -1,15 +1,15 @@
 import { Button } from "../../components/buttons/Button"
-import { Form } from "../../components/form/Form"
+import { Form } from "../../components/Form/Form"
 import useForm from "../../hooks/useForm"
 import { useHistory } from "react-router-dom"
 import useRequestData from "../../hooks/useRequestData"
 import allGenres from "../../functions/allGenres"
-import Selected from '../../components/inputs/options'
+import Selected from '../../components/Inputs/options'
 import createMusic from '../../requests/createMusic'
 
 import { useEffect } from "react"
 import AllButtons from "../../components/TEMPORARIOS/AllButtons"
-import { Input } from "../../components/inputs/Input"
+import { Input } from "../../components/Inputs/Input"
 import styled from "styled-components"
 import useProtectedPage from "../../hooks/useProtectedPage"
 const CreateMusicPage = (params) => {
