@@ -3,8 +3,6 @@ import { Form } from "../../components/Form/Form"
 import useForm from "../../hooks/useForm"
 import { useHistory } from "react-router-dom"
 import useRequestData from "../../hooks/useRequestData"
-import allGenres from "../../functions/allGenres"
-import Selected from '../../components/Inputs/options'
 import createMusic from '../../requests/createMusic'
 
 import { useEffect } from "react"
@@ -13,7 +11,7 @@ import { Input } from "../../components/Inputs/Input"
 import styled from "styled-components"
 import useProtectedPage from "../../hooks/useProtectedPage"
 const CreateMusicPage = (params) => {
-    const [form, onChange] = useForm({ music_title: "", music_author: "",music_file: "",genre_id: "",album_id: "" })
+    const [form, onChange] = useForm({ music_title: "", music_author: "", music_file: "", genre_id: "", album_id: "" })
     // const [genreForm,onChangeForm] =useForm({genre})
     useEffect(() => {
 
@@ -31,31 +29,72 @@ const CreateMusicPage = (params) => {
     })
     useEffect(() => {
 
-    },[])
+    }, [])
     return (
         <div>
 
             <h1>createMusicPage</h1>
-            <Form onSubmit ={(evt) => createMusic(form,evt,history)}>
-                <Input name="music_title" onChange={onChange} placeholder="music_title" value={form.music_title}></Input>
-                <Input name="music_author" onChange={onChange} placeholder="music_author" value={form.music_author}></Input>
-                <Input name="music_file" onChange={onChange} placeholder="music_file" value={form.music_file}></Input>
+            <Form onSubmit={(evt) => createMusic(form, evt, history)}>
+                <Input
+                    name="music_title"
+                    onChange={onChange}
+                    placeholder="music_title"
+                    value={form.music_title}
+                    required
+                    pattern={"^.{6,}"}
+                    >
+                </Input>
 
-                <Select name="album_id" onChange={onChange} placeholder="album_id" value={form.album_id}>
+                <Input
+                    name="music_author"
+                    onChange={onChange}
+                    placeholder="music_author"
+                    value={form.music_author}
+                    required
+                    pattern={"^.{6,}"}
+                    >
+                </Input>
+
+                <Input
+                    name="music_file"
+                    onChange={onChange}
+                    placeholder="music_file"
+                    value={form.music_file}
+                    required
+                    pattern={"^.{6,}"}
+                    >
+                </Input>
+
+                <Select
+                    name="album_id"
+                    onChange={onChange}
+                    placeholder="album_id"
+                    value={form.album_id}
+                    required
+                    >
                     {albumOptions}
                 </Select>
-                <Select name="genre_id" onChange={onChange} placeholder="genre_id">
-                {genreOptions} 
+
+                <Select
+                    name="genre_id"
+                    onChange={onChange}
+                    placeholder="genre_id"
+                    required
+                    >
+                    {genreOptions}
                 </Select>
-        <Button 
-        text={"Create Music "}
-        backgroundColor="orange"/>
+
+                <Button
+                    text={"Create Music "}
+                    backgroundColor="orange" />
             </Form>
-            {/* <input name="genre" onChange={onChange} placeholder="genre" value={form.email}></input> */ }
-    {/* Genre fazer com todos os types existentes, sendo adicionar 1 a 1, ou por option/seçect */ }
+            {/* <input 
+            name="genre" 
+            onChange={onChange} placeholder="genre" value={form.email}></input> */ }
+            {/* Genre fazer com todos os types existentes, sendo adicionar 1 a 1, ou por option/seçect */}
 
 
-{/* <AllButtons/> */}
+            {/* <AllButtons/> */}
         </div >
     )
 }

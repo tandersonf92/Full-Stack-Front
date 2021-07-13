@@ -4,6 +4,7 @@ import { MusicContainer } from "../../components/Container/MusicContainer"
 import AllButtons from "../../components/TEMPORARIOS/AllButtons"
 import useProtectedPage from "../../hooks/useProtectedPage"
 import useRequestData from "../../hooks/useRequestData"
+import ModalPage from "../ModalPage/ModalPage"
 
 const HomePage = (params) => {
     const history = useHistory()
@@ -31,6 +32,7 @@ const HomePage = (params) => {
             <h1>HomePagegege</h1>
             {test ? test : <h2>loading</h2>}
 
+            <ModalPage />
             <AllButtons />
         </div>
     )
