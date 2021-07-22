@@ -3,15 +3,20 @@ import styled from 'styled-components'
 
 
 export const MusicContainer = props => {
-  let thumbnailIndex = props.file_address.search("v=")
-  let thumbnailLink=  props.file_address.slice(thumbnailIndex+2)
-  let youtubeAddressVideo = `http://i1.ytimg.com/vi/${thumbnailLink}/default.jpg`
+//   let thumbnailIndex = props.file_address.search("v=")
+//   let thumbnailLink=  props.file_address.slice(thumbnailIndex+2)
+//   let youtubeAddressVideo = `http://i1.ytimg.com/vi/${thumbnailLink}/default.jpg`
     return (
         <Body>
-            <ImageBox src={youtubeAddressVideo}>
-            </ImageBox>
+            {/* <ImageBox src={youtubeAddressVideo}> */}
+            {/* </ImageBox> */}
             <Title>
                 {props.title}
+            </Title>
+            <Title>
+                {
+                    props.author
+                }
             </Title>
             <div>
             </div>

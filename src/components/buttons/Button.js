@@ -7,7 +7,7 @@ export const Button = props => {
 
         // <StyledButton  style={{backgroundColor:propos.backgroundColor}}>{propos.msg}</StyledButton>
         <Container>
-            <ButtonSubmit 
+            <ButtonSubmit disabled={props.disabled}
             style={{backgroundColor:props.backgroundColor,color: props.color}}
              onClick={props.onClick}  
              type={props.type}>

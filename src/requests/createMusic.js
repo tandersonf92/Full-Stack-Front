@@ -14,8 +14,13 @@ const createMusic = async (body, evt, history) => {
             body, {
             headers: { authorization: token }
         })
-        alert("Music created!")
-        goToHomePage(history)
+        if (!body.album_id || !body.genre_id) {
+            alert("Falta dados!")
+        } else {
+
+            alert("Music created!")
+            goToHomePage(history)
+        }
 
     } catch (error) {
         alert('error: ', error.response)
