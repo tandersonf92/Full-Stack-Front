@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom"
 import styled from "styled-components"
 import AlbumContainer from "../../components/AlbumContainer/AlbumContainer"
 import { MusicContainer } from "../../components/Container/MusicContainer"
+import Header from "../../components/Header/Header"
 import AllButtons from "../../components/TEMPORARIOS/AllButtons"
 import { BASE_URL } from "../../constants/BASE_URL"
 import useProtectedPage from "../../hooks/useProtectedPage"
@@ -54,23 +55,23 @@ console.log('RESPINSE: ',response)
     return (
 
 
-        <div>
+        <HomePageContainer>
 
-
-            <button>Testando valores dos alls</button>
-
-            <h1>HomePagegege</h1>
+        <Header/>
             {/* {test ? test : <h2>loading</h2>} */}
            <FlexContainer>
            {albums? albumsTest : <h2>loading os albunssss</h2>}
 
 
            </FlexContainer>
-           {selectMusics ? selectMusics : <h2>LOADINGGGG</h2>}
+           {selectMusics ? selectMusics :  <MusicContainer
+            key={"19"}
+            message={"Nenhum Album selecionado ou sem músicas disponíveis"}
+        />}
 
             <ModalPage />
             {/* <AllButtons /> */}
-        </div>
+        </HomePageContainer>
     )
 }
 
@@ -78,10 +79,19 @@ console.log('RESPINSE: ',response)
 export default HomePage
 
 
+const HomePageContainer= styled.div`
+width:max(380px,80vw);
+margin: auto;
+/* background-color: orange; */
+
+`
+
+
 const FlexContainer = styled.div`
 display:flex;
-background-color: orange;
+/* background-color: orange; */
 flex-direction: row;
-width: 100vw;
+/* width: 100vw; */
 flex-wrap: wrap;
+justify-content: center;
 `
